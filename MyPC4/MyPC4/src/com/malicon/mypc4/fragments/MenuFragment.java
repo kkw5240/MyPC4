@@ -47,8 +47,8 @@ public class MenuFragment extends ListFragment {
 //			newContent = new MyFragment(android.R.color.black);
 //			break;
 //		}
-		if (newContent != null)
-			switchFragment(newContent);
+		//if (newContent != null)
+		//	switchFragment(newContent);
 	}
 
 	// the meat of switching the above fragment
@@ -57,11 +57,11 @@ public class MenuFragment extends ListFragment {
 			return;
 		
 		if (getActivity() instanceof FragmentChangeActivity) {
-			FragmentChangeActivity fca = (FragmentChangeActivity) getActivity();
-			fca.switchContent(fragment);
+			//FragmentChangeActivity fca = (FragmentChangeActivity) getActivity();
+			//fca.switchContent(fragment);
 		} else if (getActivity() instanceof ResponsiveUIActivity) {
-			ResponsiveUIActivity ra = (ResponsiveUIActivity) getActivity();
-			ra.switchContent(fragment);
+			//ResponsiveUIActivity ra = (ResponsiveUIActivity) getActivity();
+			//ra.switchContent(fragment);
 		}
 	}
 

@@ -39,7 +39,7 @@ public class FragmentChangeActivity extends BaseActivity {
 		.commit();
 		
 		// customize the SlidingMenu
-		getSlidingMenu().setTouchModeAbove(SlidingMenu.TOUCHMODE_FULLSCREEN);
+		//getSlidingMenu().setTouchModeAbove(SlidingMenu.TOUCHMODE_FULLSCREEN);//SlidingMenu.TOUCHMODE_FULLSCREEN
 	}
 	
 	@Override
@@ -49,12 +49,12 @@ public class FragmentChangeActivity extends BaseActivity {
 	}
 	
 	public void switchContent(Fragment fragment) {
-		mContent = fragment;
+		/*mContent = fragment;
 		getSupportFragmentManager()
 		.beginTransaction()
 		.replace(R.id.content_frame, fragment)
-		.commit();
-		getSlidingMenu().showContent();
+		.commit();*/
+		//getSlidingMenu().showContent();
 	}
 
 }

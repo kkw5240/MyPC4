@@ -8,9 +8,10 @@ import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 import com.malicon.mypc4.R;
 
 public class MainActivity extends BaseActivity {
-
+	public static AllParts allParts = null;
 	public MainActivity() {
 		super(R.string.viewpager);
+		allParts = AllParts.getInstance();
 	}
 
 	@Override

@@ -36,16 +36,16 @@ public class ResponsiveUIActivity extends SlidingFragmentActivity {
 		// check if the content frame contains the menu frame
 		if (findViewById(R.id.menu_frame) == null) {
 			setBehindContentView(R.layout.menu_frame);
-			getSlidingMenu().setSlidingEnabled(true);
-			getSlidingMenu().setTouchModeAbove(SlidingMenu.TOUCHMODE_FULLSCREEN);
+			//getSlidingMenu().setSlidingEnabled(true);
+			//getSlidingMenu().setTouchModeAbove(SlidingMenu.TOUCHMODE_FULLSCREEN);
 			// show home as up so we can toggle
-			getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+			//getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 		} else {
 			// add a dummy view
 			View v = new View(this);
 			setBehindContentView(v);
-			getSlidingMenu().setSlidingEnabled(false);
-			getSlidingMenu().setTouchModeAbove(SlidingMenu.TOUCHMODE_NONE);
+			//getSlidingMenu().setSlidingEnabled(false);
+			//getSlidingMenu().setTouchModeAbove(SlidingMenu.TOUCHMODE_NONE);
 		}
 
 		// set the Above View Fragment
@@ -90,16 +90,16 @@ public class ResponsiveUIActivity extends SlidingFragmentActivity {
 
 	public void switchContent(final Fragment fragment) {
 		mContent = fragment;
-		getSupportFragmentManager()
+		/*getSupportFragmentManager()
 		.beginTransaction()
 		.replace(R.id.content_frame, fragment)
 		.commit();
 		Handler h = new Handler();
 		h.postDelayed(new Runnable() {
 			public void run() {
-				getSlidingMenu().showContent();
+				//getSlidingMenu().showContent();
 			}
-		}, 50);
+		}, 50);*/
 	}	
 
 }

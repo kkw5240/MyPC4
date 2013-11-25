@@ -1,7 +1,6 @@
 package com.malicon.mypc4;
 
 import java.util.ArrayList;
-import java.io.InputStreamReader;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;

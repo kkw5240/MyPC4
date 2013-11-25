@@ -10,14 +10,14 @@ import android.widget.ListView;
 
 public class page extends Fragment{
 	ListAdapter la = null;
-	Tab t = null;
+	private static AllParts t = null;
 	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		//la = new ListAdapter(getActivity());
-		t = new Tab();
-		ArrayList<Part> info = t.getParts();
+		t = AllParts.getInstance();
+		ArrayList<Part> info = t.getParts(0);
 		
 		return onCreateList(this, inflater.inflate(R.layout.list_page,container,false), info, la);
 	}
