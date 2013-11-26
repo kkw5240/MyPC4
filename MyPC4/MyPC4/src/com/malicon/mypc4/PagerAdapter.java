@@ -9,7 +9,7 @@ import com.malicon.mypc4.fragments.MyFragment;
 public class PagerAdapter extends FragmentPagerAdapter {
 	
 	private ArrayList<Fragment> mFragments;
-	private String tabName[] = new String[]{
+	private final String tabName[] = new String[]{
 			"MyPage",
 			"CPU", 
 			"메인보드", 
