@@ -22,6 +22,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name="com.malicon.mypc4.Loading"/>
         <activity android:name="com.malicon.mypc4.fragments.FragmentChangeActivity" />
         <activity android:name="com.malicon.mypc4.fragments.ResponsiveUIActivity" />
     </application>

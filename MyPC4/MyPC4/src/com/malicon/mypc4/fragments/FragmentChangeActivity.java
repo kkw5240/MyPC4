@@ -21,8 +21,8 @@ public class FragmentChangeActivity extends BaseActivity {
 		// set the Above View
 		if (savedInstanceState != null)
 			mContent = getSupportFragmentManager().getFragment(savedInstanceState, "mContent");
-		if (mContent == null)
-			mContent = new MyFragment();	
+		//if (mContent == null)
+		//	mContent = new MyFragment();	
 		
 		// set the Above View
 		setContentView(R.layout.content_frame);

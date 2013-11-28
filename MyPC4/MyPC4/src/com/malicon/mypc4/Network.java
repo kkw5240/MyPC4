@@ -15,6 +15,7 @@ public class Network extends Thread {
 	
 	public Network() {
 		arg = new ArrayList<String>();
+		allParts = AllParts.getInstance();
 		arg.add("&minPrice=10&maxPrice=99999999");
 		arg.add("&minPrice=10&maxPrice=99999999");
 		arg.add("&minPrice=10&maxPrice=99999999&attributeValues=35101&attributeValues=4400");
@@ -24,12 +25,8 @@ public class Network extends Thread {
 		arg.add("&minPrice=10&maxPrice=99999999");
 		arg.add("&minPrice=10&maxPrice=99999999&attributeValues=4772");
 		arg.add("&minPrice=10000&maxPrice=99999999");
-	}
-	
-	public Network(ArrayList<String> arg) {
-		allParts = AllParts.getInstance();
-		this.arg = arg;
 		
+
 		blackList.add("가이드");
 		blackList.add("브라켓");
 		blackList.add("카드리더기");
@@ -45,6 +42,11 @@ public class Network extends Thread {
 		blackList.add("액세서리");
 		blackList.add("제온");
 		blackList.add("BTX");
+	}
+	
+	public Network(ArrayList<String> arg) {
+		this();
+		this.arg = arg;
 	}
 	
 	@Override
@@ -63,9 +65,10 @@ public class Network extends Thread {
 				url+"878&categoryCode3=0&categoryCode4=0&order=MinPrice&page=1&limit=20",
 				url+"879&categoryCode3=0&categoryCode4=0&order=MinPrice&page=1&limit=20"
 		};
-		//for(int i=0;i<urlList.length;i++)
-		//if(!arg.get(i).equals("none"))
-		//	getInfo(url+"873&categoryCode3=0&categoryCode4=0&order=BEST&page=1&limit=20"+arg.get(i),allParts.getParts(i).info,1);
+		for(int i=0;i<urlList.length;i++)
+			if(!arg.get(i).equals("none"))
+				getInfo(urlList[i]+arg.get(i),allParts.getParts(i),1);
+			
 
 		Loading.changemain.sendEmptyMessage(0);
 	}

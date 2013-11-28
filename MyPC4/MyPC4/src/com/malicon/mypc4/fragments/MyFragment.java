@@ -1,5 +1,7 @@
 package com.malicon.mypc4.fragments;
 
+import java.util.ArrayList;
+
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -7,14 +9,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
+import com.malicon.mypc4.Part;
 import com.malicon.mypc4.R;
 import com.malicon.mypc4.ListAdapter;
 
 public class MyFragment extends Fragment {
 	private ListAdapter listAdapter =  null;
 	
-	public MyFragment() {
-		listAdapter = new ListAdapter(getActivity(), null);
+	public MyFragment(ArrayList<Part> parts) {
+		listAdapter = new ListAdapter(getActivity(), parts);
 		setRetainInstance(true);
 	}
 
@@ -33,6 +36,5 @@ public class MyFragment extends Fragment {
 	public void onSaveInstanceState(Bundle outState) {
 		super.onSaveInstanceState(outState);
 		outState.putParcelable("listAdapter", listAdapter);
-	}
-	
+	}	
 }

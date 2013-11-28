@@ -24,9 +24,11 @@ public class PagerAdapter extends FragmentPagerAdapter {
 	
 	public PagerAdapter(FragmentManager fm) {
 		super(fm);
+		AllParts parts = AllParts.getInstance();
 		mFragments = new ArrayList<Fragment>();
-		for (int i=0 ; i<tabName.length ; i++){
-			mFragments.add(new MyFragment());
+		mFragments.add(new SampleListFragment());
+		for (int i=1 ; i<tabName.length ; i++){
+			mFragments.add(new MyFragment(parts.getParts(i-1)));
 		}
 	}
 

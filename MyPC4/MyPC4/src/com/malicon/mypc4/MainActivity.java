@@ -1,5 +1,6 @@
 package com.malicon.mypc4;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
@@ -18,6 +19,9 @@ public class MainActivity extends BaseActivity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		
+		Intent i = new Intent(this, Loading.class);
+		startActivity(i);
 
 		ViewPager vp = (ViewPager) findViewById(R.id.pager);
 		
