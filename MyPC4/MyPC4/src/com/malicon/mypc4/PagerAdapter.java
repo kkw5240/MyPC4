@@ -10,7 +10,7 @@ public class PagerAdapter extends FragmentPagerAdapter {
 	
 	private ArrayList<Fragment> mFragments;
 	private final String tabName[] = new String[]{
-			"MyPage",
+			//"MyPage",
 			"CPU", 
 			"메인보드", 
 			"HDD", 
@@ -26,9 +26,9 @@ public class PagerAdapter extends FragmentPagerAdapter {
 		super(fm);
 		AllParts parts = AllParts.getInstance();
 		mFragments = new ArrayList<Fragment>();
-		mFragments.add(new SampleListFragment());
-		for (int i=1 ; i<tabName.length ; i++){
-			mFragments.add(new MyFragment(parts.getParts(i-1)));
+		//mFragments.add(new SampleListFragment());
+		for (int i=0 ; i<tabName.length ; i++){
+			mFragments.add(new MyFragment(parts.getParts(i)));
 		}
 	}
 

@@ -137,7 +137,7 @@ public class Network extends Thread {
 					break;
 			}
 			if(i == blackList.size()){
-				tmp.price = substring(line, "<minPrice>",10, "</minPrice>",0) +"¿ø";
+				tmp.price = substring(line, "<minPrice>",10, "</minPrice>",0);
 				
 				arr.add(tmp);
 			}

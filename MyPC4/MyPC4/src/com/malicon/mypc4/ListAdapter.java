@@ -2,39 +2,37 @@ package com.malicon.mypc4;
 
 import java.util.ArrayList;
 
-
-
 import android.content.Context;
-import android.os.Parcel;
-import android.os.Parcelable;
+//import android.os.Parcel;
+//import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.CheckBox;
 import android.widget.TextView;
 
-public class ListAdapter extends BaseAdapter implements Parcelable {
+public class ListAdapter extends BaseAdapter{// implements Parcelable {
 	private ArrayList<Part> parts = null;
-	AllParts allParts = null;
-	//Tab tab = null;
+	private AllParts allParts = null;
+	private LayoutInflater inflater = null;
 	private Context c = null;
+	
 	public ListAdapter(Context c, ArrayList<Part> parts) {
+		inflater = LayoutInflater.from(c);
 		this.c = c;
-		parts = new ArrayList<Part>();
 		this.parts = parts;
-		//tab = new Tab();
 	}
 	
-	@Override
-	public int describeContents() {
-		return 0;
-	}
-
-	@Override
-	public void writeToParcel(Parcel dest, int flags) {
-		dest.writeValue(parts);
-		//dest.writeValue(tab.getParts());
-	}
+//	@Override
+//	public int describeContents() {
+//		return 0;
+//	}
+//
+//	@Override
+//	public void writeToParcel(Parcel dest, int flags) {
+//		dest.writeValue(parts);
+//	}
 	
 	@Override
 	public int getCount() {
@@ -59,18 +57,33 @@ public class ListAdapter extends BaseAdapter implements Parcelable {
 	@Override
 	public View getView(int position, View convertview, ViewGroup parent) {
 		View v = convertview;
-		TextView t = null;
+		ViewHolder vh = null;
 		if(v == null){
-			LayoutInflater inflater = LayoutInflater.from(c);
+			vh = new ViewHolder();
 			v = inflater.inflate(R.layout.itemlayout, null);
-			t = (TextView)v.findViewById(R.id.itemName);
+			vh.name = (TextView)v.findViewById(R.id.itemName);
+			vh.attribute = (TextView)v.findViewById(R.id.itemPerformance);
+			vh.price = (TextView)v.findViewById(R.id.itemPrice);
+			v.setTag(vh);
 		}else{
+			vh = (ViewHolder)v.getTag();
 		}
 		
-		if(t != null)
-			t.setText(parts.get(position).name);
+		if(vh.name != null)
+			vh.name.setText(parts.get(position).name);
+		if(vh.attribute != null)
+			vh.attribute.setText(parts.get(position).attribute);
+		if(vh.price != null)
+			vh.price.setText(parts.get(position).price+"¿ø");
 		
 		return v;
+	}
+	class ViewHolder {
+		//ImageView icon;
+		TextView name;
+		TextView attribute;
+		TextView price;
+		CheckBox cb;
 	}
 
 }

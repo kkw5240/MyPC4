@@ -23,7 +23,15 @@ public class Loading extends Activity {
 		changemain = new Handler(){
 			@Override
 			public void handleMessage(Message msg) {
-
+				//if(AllParts.getInstance() != null)/*
+				AllParts allparts = AllParts.getInstance();
+				
+				for(int i=0;i<9;i++)
+					if(allparts.getListAdapter(i) != null)
+						allparts.getListAdapter(i).notifyDataSetChanged();
+						//MainActivity.tabs[0].la.notifyDataSetChanged();
+				//if(MainActivity.tabs[1].la != null)
+				//	MainActivity.tabs[1].la.notifyDataSetChanged();*/
 				finish();
 			}
 		};
