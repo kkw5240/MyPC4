@@ -12,7 +12,7 @@ public class PagerAdapter extends FragmentPagerAdapter {
 	private final String tabName[] = new String[]{
 			//"MyPage",
 			"CPU", 
-			"¸ŞÀÎº¸µå", 
+			"ë©”ì¸ë³´ë“œ", 
 			"HDD", 
 			"SSD", 
 			"RAM", 

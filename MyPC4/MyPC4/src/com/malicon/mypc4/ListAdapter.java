@@ -74,7 +74,7 @@ public class ListAdapter extends BaseAdapter{// implements Parcelable {
 		if(vh.attribute != null)
 			vh.attribute.setText(parts.get(position).attribute);
 		if(vh.price != null)
-			vh.price.setText(parts.get(position).price+"¿ø");
+			vh.price.setText(parts.get(position).price+"ì›");
 		
 		return v;
 	}

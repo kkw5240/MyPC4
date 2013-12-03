@@ -27,20 +27,20 @@ public class Network extends Thread {
 		arg.add("&minPrice=10000&maxPrice=99999999");
 		
 
-		blackList.add("°¡ÀÌµå");
-		blackList.add("ºê¶óÄÏ");
-		blackList.add("Ä«µå¸®´õ±â");
-		blackList.add("ÁÖº¯±â±â");
-		blackList.add("½ºÆäÀÌ¼­");
-		blackList.add("¾î´ğÅÍ");
-		blackList.add("¸Ş¸ğ¸®½ºÆ½");
-		blackList.add("º¹»ç±â");
-		blackList.add("³ëÆ®ºÏ");
+		blackList.add("ê°€ì´ë“œ");
+		blackList.add("ë¸Œë¼ì¼“");
+		blackList.add("ì¹´ë“œë¦¬ë”ê¸°");
+		blackList.add("ì£¼ë³€ê¸°ê¸°");
+		blackList.add("ìŠ¤í˜ì´ì„œ");
+		blackList.add("ì–´ëŒ‘í„°");
+		blackList.add("ë©”ëª¨ë¦¬ìŠ¤í‹±");
+		blackList.add("ë³µì‚¬ê¸°");
+		blackList.add("ë…¸íŠ¸ë¶");
 		blackList.add("FDD");
 		blackList.add("CTRL FRONT USB3.0");
 		blackList.add("A-Cross Kit");
-		blackList.add("¾×¼¼¼­¸®");
-		blackList.add("Á¦¿Â");
+		blackList.add("ì•¡ì„¸ì„œë¦¬");
+		blackList.add("ì œì˜¨");
 		blackList.add("BTX");
 	}
 	
