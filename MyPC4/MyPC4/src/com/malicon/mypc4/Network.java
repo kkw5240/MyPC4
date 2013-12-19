@@ -8,14 +8,16 @@ import java.util.ArrayList;
 
 public class Network extends Thread {
 	
-	ArrayList<String> blackList = new ArrayList<String>();
-	AllParts allParts = null;
+	ArrayList<String> blackList = new ArrayList<String>();	// Product exception remove(for filter)
+	AllParts allParts = null;	// All Product
 	
-	ArrayList<String> arg = null;
+	ArrayList<String> arg = null;	// Each Products's Address(sort)
 	
 	public Network() {
 		arg = new ArrayList<String>();
 		allParts = AllParts.getInstance();
+		
+		/* Add arg(address) */
 		arg.add("&minPrice=10&maxPrice=99999999");
 		arg.add("&minPrice=10&maxPrice=99999999");
 		arg.add("&minPrice=10&maxPrice=99999999&attributeValues=35101&attributeValues=4400");
@@ -26,7 +28,7 @@ public class Network extends Thread {
 		arg.add("&minPrice=10&maxPrice=99999999&attributeValues=4772");
 		arg.add("&minPrice=10000&maxPrice=99999999");
 		
-
+		/* Add blackList */
 		blackList.add("가이드");
 		blackList.add("브라켓");
 		blackList.add("카드리더기");
@@ -44,33 +46,33 @@ public class Network extends Thread {
 		blackList.add("BTX");
 	}
 	
-	public Network(ArrayList<String> arg) {
+	public Network(ArrayList<String> arg) {	// Constructor
 		this();
 		this.arg = arg;
 	}
 	
 	@Override
-	public void run() {
+	public void run() {	// Network thread
 		
 		//send("")
-		String url = "http://m.danawa.com/new/product/products.xml?categoryCode1=861&categoryCode2=";
+		String url = "http://m.danawa.com/new/product/products.xml?categoryCode1=861&categoryCode2=";	// Basic address
 		String urlList[] = new String[]{
-				url+"873&categoryCode3=0&categoryCode4=0&order=BEST&page=1&limit=20",
-				url+"875&categoryCode3=0&categoryCode4=0&order=MinPrice&page=1&limit=20",
-				url+"877&categoryCode3=0&categoryCode4=0&order=MinPrice&page=1&limit=20",
-				url+"32617&categoryCode3=0&categoryCode4=0&order=MinPrice&page=1&limit=20",
-				url+"874&categoryCode3=0&categoryCode4=0&order=MinPrice&page=1&limit=20",
-				url+"876&categoryCode3=0&categoryCode4=0&order=MinPrice&page=1&limit=20",
-				url+"880&categoryCode3=0&categoryCode4=0&order=BEST&page=1&limit=20",
-				url+"878&categoryCode3=0&categoryCode4=0&order=MinPrice&page=1&limit=20",
-				url+"879&categoryCode3=0&categoryCode4=0&order=MinPrice&page=1&limit=20"
+				url+"873&categoryCode3=0&categoryCode4=0&order=BEST&page=1&limit=20",			// CPU's Address
+				url+"875&categoryCode3=0&categoryCode4=0&order=MinPrice&page=1&limit=20",		// MainBoard's Address
+				url+"877&categoryCode3=0&categoryCode4=0&order=MinPrice&page=1&limit=20",		// HDD's Address
+				url+"32617&categoryCode3=0&categoryCode4=0&order=MinPrice&page=1&limit=20",		// SSD's Address
+				url+"874&categoryCode3=0&categoryCode4=0&order=MinPrice&page=1&limit=20",		// RAM's Address
+				url+"876&categoryCode3=0&categoryCode4=0&order=MinPrice&page=1&limit=20",		// VGA's Address
+				url+"880&categoryCode3=0&categoryCode4=0&order=BEST&page=1&limit=20",			// Power's Address
+				url+"878&categoryCode3=0&categoryCode4=0&order=MinPrice&page=1&limit=20",		// ODD's Address
+				url+"879&categoryCode3=0&categoryCode4=0&order=MinPrice&page=1&limit=20"		// Case's Address
 		};
 		for(int i=0;i<urlList.length;i++)
 			if(!arg.get(i).equals("none"))
-				getInfo(urlList[i]+arg.get(i),allParts.getParts(i),1);
+				getInfo(urlList[i]+arg.get(i),allParts.getParts(i),1);	// Add all products's information(code, name, attribute, price)
 			
 
-		Loading.changemain.sendEmptyMessage(0);
+		Loading.changemain.sendEmptyMessage(0);	// Loading(ProgressBar)
 	}
 	/*
 	void send(String str){
@@ -79,7 +81,7 @@ public class Network extends Thread {
 		Loading.uptext.sendMessage(msg);
 	}*/
 	
-	static String remote(String site, String charset) {
+	static String remote(String site, String charset) {		// Read XMLpage
 		StringBuffer sBuffer = new StringBuffer();
 		String str = "";
 		try {
@@ -107,7 +109,7 @@ public class Network extends Thread {
 		return str;
 	}
 	
-	private void getInfo(String url,ArrayList<Part> arr,int page){
+	private void getInfo(String url,ArrayList<Part> arr,int page){		// Get product's information(substring XMLpage)
 		String line = null;
 
 		if(page == 1)
@@ -121,7 +123,7 @@ public class Network extends Thread {
 		
 		
 		while(true) {
-			Part tmp = new Part();
+			Part tmp = new Part();	// Make one part(product)'s info
 			tmp.code = substring(line,"<code>",6, "</code>",0);
 			tmp.name = substring(line, "<makerName>",11, "</makerName>",0).trim();
 			if(line.indexOf("<brandName>") < line.indexOf("</product>"))
